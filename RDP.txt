@@ -1,0 +1,34 @@
+Introduction:
+
+NoVNC is a web-based VNC (Virtual Network Computing) client that allows you to access and control remote desktop environments through a web browser. 
+This documentation provides a step-by-step guide to automate the setup of NoVNC Ubuntu, enabling you to access desktop environment from a browser.
+
+Prerequisites:
+Ubuntu installed.
+Internet connectivity.
+
+Step 1: Install Dependencies
+
+To begin, we need to install some dependencies that are required for running NoVNC.
+
+Open a terminal and execute the following commands:
+
+```sudo apt update
+sudo apt install -y novnc websockify```
+
+Step 2: Launch NoVNC
+Once the dependencies are installed, we can start the NoVNC service.
+
+Execute the following command in the terminal:
+
+```sudo systemctl start novnc```
+
+Step 3 : Know in which display it is running.
+
+```x11vnc -display :0 -autoport -localhost -nopw -bg -xkb -ncache -ncache_cr -quiet -forever```
+ 
+Step 4 :Then, we get the NoVNC in running (this will open 8081/TCP).
+
+ ``` /usr/share/novnc/utils/novnc_proxy --listen 8081 --vnc localhost:5900```
+
+Step 5 : Acces the desktop by RDP application in windows or linux.

@@ -1,0 +1,62 @@
+#  Prerequisites:
+
+Access to a user account with sudo privileges.
+Access to a terminal window/command line (Ctrl-Alt-T).
+
+# Step 1: Update the System Packages.
+
+Start by updating your repositories – enter the following in a terminal window:
+
+```sudo apt update```
+
+# Step 2: Install the vsftpd Server on Ubuntu.
+
+A common open-source FTP utility used in Ubuntu is vsftpd.
+
+To install vsftpd, enter the following command:
+
+```sudo apt install vsftpd```
+
+To launch the service and enable it at startup, run the following commands:
+
+```sudo systemctl start vsftpd````
+
+```sudo systemctl enable vsftpd```
+
+# Step 3: For Backup Configuration Files (optional)
+
+Before making any changes, make sure to back up your configuration files.
+
+1. Create a backup copy of the default configuration file by entering the following command:
+
+```sudo cp /etc/vsftpd.conf  /etc/vsftpd.conf_default```
+
+# Step 4: Create a FTP User.
+
+Create a new FTP user with the following commands:
+
+```sudo useradd -m "user"```
+
+```sudo passwd "user-passwd"```
+
+The system will ask you to create a password for the new user account.
+
+#Step 5: Configure Firewall to allow the FTP Traffic.
+
+If you are using UFW that comes standard with Ubuntu, it will block the FTP traffic by default.
+ Enter the following commands to open Ports 20 and 21 for FTP traffic:
+
+```sudo ufw allow 20/tcp```
+
+```sudo ufw allow 21/tcp```
+
+# Step 6: Connect to the Ubuntu FTP Server.
+
+Connect to the FTP server with the following command:
+
+```sudo ftp user-name```
+
+Configuration file of ftp with the following command:
+
+```/etc/vsftpd.conf```
+

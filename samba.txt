@@ -1,0 +1,35 @@
+###SAMBA INSTALLATION###
+Samba is a server used to communicate between windows and linux. 
+It has 2 protocols. They are :
+1.SMB (Server Message block).
+2.NMB(NetBIOS Message block).
+
+The port numbers for samba  are :
+  137,138 -UDP(USER DATAGRAM PROTOCOL)
+  139 ,445 - TCP(Transmission Control Protocol)
+
+ Step 1 : Installing Samba.
+
+To install samba type the below command:
+
+ ```sudo apt install samba -y```
+
+Step 2 : Once the above step is completed check the samba status by using the below command:
+
+``` sudo systemctl status smbd ```
+
+Step 3 : Then, create a directory for samba share it by using the below Command: 
+
+```sudo mkdir -p /home/user/share1```
+
+Step 4 : After creating a directory give permissions for both the directories by using the below command:
+
+```sudo chmod 777 /home/user/share1 ```
+
+Step 5 : Then, we need to create a samba share user to access samba share by using the below command:
+
+``` useradd user1 ```
+
+Step 6 : Once it is completed set the samba passwords for both the users by using the following command:
+
+``` smbpasswd -a user1 ```

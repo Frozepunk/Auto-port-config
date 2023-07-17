@@ -1,0 +1,32 @@
+#  Prerequisites:
+
+Access to a user account with sudo privileges.
+Access to a terminal window/command line (Ctrl-Alt-T).
+
+# Step 1: Update the System Packages
+
+Start by updating your repositories – enter the following command in the terminal of window:
+
+```sudo apt update```
+
+# Step 2: Install SSHserver(Secure Shell Server) in by using this command :
+
+```sudo apt install openssh-server```
+
+# Step 3: Check Whether it is active or not by using the following command :
+
+```sudo systemctl status ssh```
+
+if it displays/exhibits inactive. Then,it  may be the problem of firewall.  
+
+In some cases the Ubuntu firewall UFW(Uncomplicated Firewall) may block SSH. To ensure this doesn't happen, use the following commad :
+		
+```sudo ufw allow ssh```
+
+In some cases, you'll need to also enable SSH on the remote device. This is a security precaution that can be tweaked using the following command:
+
+```sudo systemctl enable ssh```
+
+After all these command, use the following command to ensure it is active or not:
+
+```sudo systemctl status ssh```
